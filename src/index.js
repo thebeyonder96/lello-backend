@@ -1,8 +1,14 @@
 import express from "express";
 import { LOGIN } from "./routes/login.js";
+import cors from 'cors'
+import helmet from 'helmet'
 
 const APP = express()
 APP.use(express.json())
+APP.use(cors({
+    origin: '*'
+}))
+APP.use(helmet())
 
 APP.use('/auth',LOGIN)
 
